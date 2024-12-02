@@ -30,6 +30,9 @@ class CarWashStation:
         return income
 
     def calculate_washing_price(self, car: Car) -> float:
+        if self.distance_from_city_center == 0:
+            print("Distance from city center cannot be zero")
+            return 0.0
         price = ((car.comfort_class
                  * (self.clean_power - car.clean_mark)
                  * self.average_rating)
